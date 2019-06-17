@@ -1,0 +1,9 @@
+button {
+  margin-bottom: 20px;
+}
+.odd {
+  color: royalblue;
+}
+.even {
+  color: blueviolet;
+}
