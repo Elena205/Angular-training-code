@@ -25,6 +25,14 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import { AccountService } from './account.service';
+import { LoggingService } from './logging.service';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { CountService } from './count.service';
+
 
 @NgModule({
   declarations: [
@@ -49,14 +57,18 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    AccountComponent,
+    NewAccountComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AccountService,LoggingService,CountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

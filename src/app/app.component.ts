@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AccountService } from './account.service';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +10,25 @@ import { Component } from '@angular/core';
     h3 {
       color: dodgerblue;
     }
-  `]
+  `],
+  providers: [UsersService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   serverElements = [{type:'server',name:'testServer',content:'Just a test!'}];
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
   loadedFeature = 'recipe';
+  accounts: {name: string, status: string}[] = [];
+  activeUsers = [];
+  inactiveUsers = [];
+
+  constructor(private accountService: AccountService) {
+
+  }
+
+  ngOnInit() {
+    this.accounts = this.accountService.accounts;
+  }
 
   onServerAdded(serverData:{serverName: string,serverContent: string}) {
     this.serverElements.push({
