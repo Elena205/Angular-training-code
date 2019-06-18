@@ -32,7 +32,23 @@ import { LoggingService } from './logging.service';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
 import { CountService } from './count.service';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { MyServersComponent } from './my-servers/my-servers.component';
+import { Routes, RouterModule } from '@angular/router';
+import { MyServerComponent } from './my-servers/my-server/my-server.component';
+import { EditMyServerComponent } from './my-servers/edit-my-server/edit-my-server.component';
+import { MyServersService } from './my-servers/my-servers.service';
+import { UserComponent } from './users/user/user.component';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id/:name', component: UserComponent },
+  { path: 'servers', component: MyServersComponent },
+  { path: 'servers/:id/edit', component: EditMyServerComponent }
+]
 
 @NgModule({
   declarations: [
@@ -61,14 +77,27 @@ import { CountService } from './count.service';
     AccountComponent,
     NewAccountComponent,
     ActiveUsersComponent,
-    InactiveUsersComponent
+    InactiveUsersComponent,
+    HomeComponent,
+    UsersComponent,
+    MyServersComponent,
+    MyServerComponent,
+    EditMyServerComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [AccountService,LoggingService,CountService],
+  providers: [
+    AccountService,
+    LoggingService,
+    CountService,
+    ShoppingListService,
+    MyServersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
