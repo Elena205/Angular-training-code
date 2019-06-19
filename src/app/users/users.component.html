@@ -1,10 +1,11 @@
 <div class="row">
-  <div class="col-md-5">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let user of users">{{user.name}}</li>
-    </ul>
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a [routerLink]="['/users', user.id, user.name]" class="list-group-item" *ngFor="let user of users">{{user.name}}</a>
+    </div>
   </div>
-  <div class="col-md-7">
-    <app-user></app-user>
+  <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet>
+    <!-- <app-user></app-user> -->
   </div>
 </div>

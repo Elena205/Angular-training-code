@@ -36,19 +36,16 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { MyServersComponent } from './my-servers/my-servers.component';
-import { Routes, RouterModule } from '@angular/router';
 import { MyServerComponent } from './my-servers/my-server/my-server.component';
 import { EditMyServerComponent } from './my-servers/edit-my-server/edit-my-server.component';
 import { MyServersService } from './my-servers/my-servers.service';
 import { UserComponent } from './users/user/user.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id/:name', component: UserComponent },
-  { path: 'servers', component: MyServersComponent },
-  { path: 'servers/:id/edit', component: EditMyServerComponent }
-]
+import { PageNotFindComponent } from './page-not-find/page-not-find.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './my-servers/edit-my-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { MyServerResolver } from './my-servers/my-server/my-server-resolver.service';
 
 @NgModule({
   declarations: [
@@ -83,20 +80,25 @@ const appRoutes: Routes = [
     MyServersComponent,
     MyServerComponent,
     EditMyServerComponent,
-    UserComponent
+    UserComponent,
+    PageNotFindComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AccountService,
     LoggingService,
     CountService,
     ShoppingListService,
-    MyServersService
+    MyServersService,
+    AuthService,
+    AuthGuard,
+    CanDeactivateGuard,
+    MyServerResolver
   ],
   bootstrap: [AppComponent]
 })
