@@ -46,6 +46,8 @@ import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './my-servers/edit-my-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { MyServerResolver } from './my-servers/my-server/my-server-resolver.service';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { MyServerResolver } from './my-servers/my-server/my-server-resolver.serv
     EditMyServerComponent,
     UserComponent,
     PageNotFindComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

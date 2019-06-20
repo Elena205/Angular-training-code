@@ -11,9 +11,15 @@ import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './my-servers/edit-my-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { MyServerResolver } from './my-servers/my-server/my-server-resolver.service';
+import { RecipesComponent } from './recipes/recipes.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  // { path: '', component: HomeComponent },
+  { path: '', redirectTo: "/recipes", pathMatch: "full" },
   { path: 'users', component: UsersComponent, children: [
     { path: ':id/:name', component: UserComponent },
   ]},
@@ -27,8 +33,19 @@ const appRoutes: Routes = [
     { path: ':id/edit', component: EditMyServerComponent, canDeactivate: [CanDeactivateGuard] },
   ]},
   // { path: 'not-found', component: PageNotFindComponent },
-  { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
-  { path: '**', redirectTo: '/not-found' },
+  // { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
+  // { path: '**', redirectTo: '/not-found' },
+  { 
+    path: 'recipes', 
+    component: RecipesComponent,
+    children: [
+      { path: '', component: RecipeStartComponent },
+      { path: 'new', component: RecipeEditComponent },
+      { path: ':id', component: RecipeDetailComponent },
+      { path: ':id/edit', component: RecipeEditComponent },
+    ]
+  },
+  { path: 'shopping-list', component: ShoppingListComponent },
 ];
 
 @NgModule({

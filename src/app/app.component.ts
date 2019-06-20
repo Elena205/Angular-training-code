@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   serverElements = [{type:'server',name:'testServer',content:'Just a test!'}];
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
-  loadedFeature = 'recipe';
+  // loadedFeature = 'recipe';
   accounts: {name: string, status: string}[] = [];
   activeUsers = [];
   inactiveUsers = [];
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
+  // onNavigate(feature: string) {
+  //   this.loadedFeature = feature;
+  // }
 }
