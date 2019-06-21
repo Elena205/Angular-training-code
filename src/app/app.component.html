@@ -1,16 +1,16 @@
-task 1
+<!-- task 1 -->
 <!-- <app-header (featureSelected)="onNavigate($event)"></app-header> -->
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div class="container">
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <router-outlet></router-outlet>
+      <router-outlet></router-outlet> -->
       <!-- <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
       <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list> -->
-    </div>
+    <!-- </div>
   </div>
-</div>
+</div> -->
 
 <!-- task 2
 <div class="container">
@@ -102,4 +102,63 @@ task 1
     </div>
   </div>
 </div> -->
+
+<!-- task 8
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm">
+        <div class="form-group">
+          <label for="email">Mail</label>
+          <input type="text" id="email" class="form-control" name="email" ngModel required email #email="ngModel">
+          <span class="form-error" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+        </div>
+        <div class="form-group">
+          <label for="subscription">Choose a Subscription</label>
+          <select name="subscription" id="subscription" [(ngModel)]="selectedSubscription" class="form-control">
+            <option [value]="subscription" *ngFor="let subscription of subscriptions">{{subscription}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="pwssword" name="password" class="form-control" ngModel required #password="ngModel">
+          <span class="form-error" *ngIf="!password.valid && password.touched">Please enter a valid password!</span>
+        </div>
+        <p class="form-error" *ngIf="!signUpForm.valid && signUpForm.touched">The form is invalid!</p>
+        <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+task 9
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="projectForm" (ngSubmit)="onSaveProject()">
+        <div class="form-group">
+          <label for="name">Project Name</label>
+          <input type="text" id="name" class="form-control" formControlName="projectName">
+          <span class="form-error">The project name is invalid!</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Mail</label>
+          <input type="text" id="email" class="form-control" formControlName="email">
+          <span class="form-error">Please enter a valid email!</span>
+        </div>
+        <p class="form-error">The form is invalid!</p>
+        <div class="form-group">
+          <label for="status">Project Status</label>
+          <select id="status" class="form-control" formControlName="projectStatus">
+            <option value="Stable">Stable</option>
+            <option value="Critical">Critical</option>
+            <option value="Finished">Finished</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Project</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 
