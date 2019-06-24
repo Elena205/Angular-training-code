@@ -33,6 +33,7 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
 import { CountService } from './count.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { RecipeService } from './recipes/recipe.service';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { MyServersComponent } from './my-servers/my-servers.component';
@@ -99,6 +100,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     LoggingService,
     CountService,
     ShoppingListService,
+    RecipeService,
     MyServersService,
     AuthService,
     AuthGuard,
