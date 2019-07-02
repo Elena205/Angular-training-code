@@ -16,7 +16,7 @@ import { CustomValidators } from './custom-validators';
   providers: [UsersService]
 })
 export class AppComponent implements OnInit {
-  serverElements = [{type:'server',name:'testServer',content:'Just a test!'}];
+  serverElements = [{type: 'server', name: 'testServer', content: 'Just a test!'}];
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
   // loadedFeature = 'recipe';
@@ -35,30 +35,30 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.accounts = this.accountService.accounts;
     this.projectForm = new FormGroup({
-      'projectName': new FormControl(
-        null, 
-        [Validators.required, CustomValidators.invalidProjectName], 
+      projectName: new FormControl(
+        null,
+        [Validators.required, CustomValidators.invalidProjectName],
         CustomValidators.asyncInvalidProjectName
       ),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'projectStatus': new FormControl('Critical')
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      projectStatus: new FormControl('Critical')
     });
   }
 
-  onServerAdded(serverData:{serverName: string,serverContent: string}) {
+  onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
-      type: "server",
+      type: 'server',
       name: serverData.serverName,
       content: serverData.serverContent,
-    })
+    });
   }
 
-  onBlueprintAdded(blueprintData:{serverName: string,serverContent: string}) {
+  onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
-      type: "blueprint",
+      type: 'blueprint',
       name: blueprintData.serverName,
       content: blueprintData.serverContent,
-    })
+    });
   }
 
   onChangeFirst() {
@@ -66,13 +66,13 @@ export class AppComponent implements OnInit {
   }
 
   onDestoryFirst() {
-    this.serverElements.splice(0,1);
+    this.serverElements.splice(0, 1);
   }
 
   onIntervalFired(firedNumber: number) {
-    if(firedNumber % 2 === 0) {
+    if (firedNumber % 2 === 0) {
       this.evenNumbers.push(firedNumber);
-    }else{
+    } else {
       this.oddNumbers.push(firedNumber);
     }
   }

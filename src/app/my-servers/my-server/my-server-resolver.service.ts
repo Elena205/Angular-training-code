@@ -5,14 +5,14 @@ import { Injectable } from '@angular/core';
 
 interface Server {
   id: number;
-  name: string; 
+  name: string;
   status: string;
 }
 @Injectable()
 export class MyServerResolver implements Resolve<Server> {
   constructor(private myServersService: MyServersService) {}
 
-  resolve(route:ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Server> | Promise<Server> | Server {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Server> | Promise<Server> | Server {
     return this.myServersService.getServer(+route.params['id']);
   }
 }

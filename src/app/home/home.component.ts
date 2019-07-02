@@ -18,21 +18,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     // this.firstObsSubscription = interval(1000).subscribe(count => {
     //   console.log(count);
     // })
-    const customIntervalObservable = Observable.create(
+    const customIntervalObservable = new Observable(
       observer => {
         let count = 0;
         setInterval(() => {
           observer.next(count);
-          if(count === 5) {
+          if (count === 5) {
             observer.complete();
           }
-          if(count > 3) {
+          if (count > 3) {
             observer.error(new Error('Count is greater 3!'));
           }
           count++;
-        },1000);
+        }, 1000);
       }
-    )
+    );
 
     this.firstObsSubscription = customIntervalObservable.pipe(filter(data => {
       return data > 0;
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onLoadServer(id: number) {
-    //complex calculation
+    // complex calculation
     this.router.navigate(['/servers', id, 'edit'], {queryParams: {allowEdit: '1'}, fragment: 'loading'});
   }
 

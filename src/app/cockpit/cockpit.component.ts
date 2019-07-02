@@ -7,8 +7,8 @@ import { Component, OnInit, EventEmitter, Output, ViewEncapsulation, ViewChild, 
   encapsulation: ViewEncapsulation.None
 })
 export class CockpitComponent implements OnInit {
-  @Output() serverCreated = new EventEmitter<{serverName: string,serverContent: string}>();
-  @Output('bpCreated') bluePrintCreated = new EventEmitter<{serverName: string,serverContent: string}>();
+  @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+  @Output() bluePrintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   // newServerName = "";
   // newServerContent = "";
   @ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef;
@@ -17,7 +17,6 @@ export class CockpitComponent implements OnInit {
 
   ngOnInit() {
   }
-  
   onAddServer(nameInput: HTMLInputElement) {
     console.log(this.serverContentInput);
     // this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});

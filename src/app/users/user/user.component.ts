@@ -14,15 +14,15 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     console.log(this.route.snapshot.params);
     this.user = {
-      id: this.route.snapshot.params['id'],
-      name: this.route.snapshot.params['name']
-    }
+      id: this.route.snapshot.params.id,
+      name: this.route.snapshot.params.name
+    };
     this.route.params.subscribe(
       (params: Params) => {
-        this.user.id = params['id'];
-        this.user.name = params['name']
+        this.user.id = params.id;
+        this.user.name = params.name;
       }
-    )
+    );
   }
 
 }

@@ -4,15 +4,15 @@ import {
   OnInit,
   ElementRef,
   HostListener,
-  HostBinding, 
+  HostBinding,
   Input} from '@angular/core';
 
 @Directive({
   selector: '[appBetterHighlight]'
 })
-export class BetterHighlightDirective implements OnInit{
-  @Input() defaultColor: string = 'transparent';
-  @Input('appBetterHighlight') highlightColor: string = 'rosybrown';
+export class BetterHighlightDirective implements OnInit {
+  @Input() defaultColor = 'transparent';
+  @Input('appBetterHighlight') highlightColor = 'rosybrown';
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) {

@@ -36,17 +36,17 @@ export class EditMyServerComponent implements OnInit {
   }
 
   onUpdateServer() {
-    this.myServersService.updateServer(this.server.id, {name:this.serverName, status: this.serverStatus});
+    this.myServersService.updateServer(this.server.id, {name: this.serverName, status: this.serverStatus});
     this.changesSaved = true;
-    this.router.navigate(['../'], {relativeTo: this.route})
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if(!this.allowEdit) {
+    if (!this.allowEdit) {
       return true;
     }
-    if((this.serverName !== this.server.name || this.serverStatus !== this.server.status) && !this.changesSaved) {
-      return confirm('Do you want to discard the changes?')
+    if ((this.serverName !== this.server.name || this.serverStatus !== this.server.status) && !this.changesSaved) {
+      return confirm('Do you want to discard the changes?');
     } else {
       return true;
     }

@@ -9,7 +9,7 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
-  
+
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
@@ -17,6 +17,6 @@ export class RecipesComponent implements OnInit {
       (recipe: Recipe) => {
         this.selectedRecipe = recipe;
       }
-    )
+    );
   }
 }

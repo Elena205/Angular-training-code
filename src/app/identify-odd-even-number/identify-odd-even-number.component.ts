@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdentifyOddEvenNumberComponent implements OnInit {
   onlyOdd = false;
-  oddNumbers = [1,3,5];
-  evenNumbers = [2,4];
+  oddNumbers = [1, 3, 5];
+  evenNumbers = [2, 4];
   value = 10;
 
   constructor() { }

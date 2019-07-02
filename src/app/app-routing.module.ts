@@ -19,13 +19,13 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 
 const appRoutes: Routes = [
   // { path: '', component: HomeComponent },
-  { path: '', redirectTo: "/recipes", pathMatch: "full" },
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'users', component: UsersComponent, children: [
     { path: ':id/:name', component: UserComponent },
   ]},
-  { 
-    path: 'servers', 
-    // canActivate: [AuthGuard], 
+  {
+    path: 'servers',
+    // canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
     component: MyServersComponent,
     children: [
@@ -35,8 +35,8 @@ const appRoutes: Routes = [
   // { path: 'not-found', component: PageNotFindComponent },
   // { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
   // { path: '**', redirectTo: '/not-found' },
-  { 
-    path: 'recipes', 
+  {
+    path: 'recipes',
     component: RecipesComponent,
     children: [
       { path: '', component: RecipeStartComponent },

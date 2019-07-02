@@ -31,7 +31,7 @@ export class MyServerComponent implements OnInit {
   }
 
   onEdit() {
-    //相对路径
+    // 相对路径
     this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'merge'});
     // 绝对路径
     // this.router.navigate(['/servers', this.server.id, 'edit']);

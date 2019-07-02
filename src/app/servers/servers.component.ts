@@ -13,13 +13,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
-  serverCreationStatus = "No server was created!";
-  serverName = "TestServer";
+  serverCreationStatus = 'No server was created!';
+  serverName = 'TestServer';
   serverCreated = false;
-  servers = ['TestServer','TestServer2'];
+  servers = ['TestServer', 'TestServer2'];
   showSecret = false;
   log = [];
-  
   constructor() {
     setTimeout( () => { this.allowNewServer = true; }, 2000);
   }
@@ -30,12 +29,11 @@ export class ServersComponent implements OnInit {
   onCreateServer() {
     this.serverCreated = true;
     this.servers.push(this.serverName);
-    this.serverCreationStatus = "Server was created! Name is " + this.serverName;
+    this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
-  
-  onUpdateServerName(event:Event) {
+  onUpdateServerName(event: Event) {
     // console.log(event);
-    this.serverName = (<HTMLInputElement>event.target).value;
+    this.serverName = (event.target as HTMLInputElement).value;
   }
 
   onToggleDetails() {

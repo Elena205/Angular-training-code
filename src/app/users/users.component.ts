@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
       name: 'Chris'
     }
   ];
-  
+
   constructor() { }
 
   ngOnInit() {

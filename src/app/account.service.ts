@@ -3,7 +3,7 @@ import { LoggingService } from './logging.service';
 
 @Injectable()
 export class AccountService {
-  accounts= [
+  accounts = [
     {
       name: 'Master Account',
       status: 'active'
@@ -24,7 +24,7 @@ export class AccountService {
   }
 
   AddAccount(name: string, status: string) {
-    this.accounts.push({name: name, status: status});
+    this.accounts.push({name, status});
     this.loggingService.logStatusChange(status);
   }
 
